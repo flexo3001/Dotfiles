@@ -48,7 +48,7 @@ set printoptions=paper:A4,syntax:n,number:y
 set shiftwidth=4
 set showbreak=↪\
 set smartindent
-set statusline=%#Visual#[%n]%#Statusline#\ %<%f\ %h%w%m%r%=%{&fileencoding?&fileencoding:&encoding}[%{&fileformat}\]\ %y\ %l,%c%V\ %P
+set statusline=[%n]\ %<%f\ %h%w%m%r%=%{&fileencoding?&fileencoding:&encoding}[%{&fileformat}\]\ %y\ %l,%c%V\ %P
 set textwidth=80
 set wrapscan
 
