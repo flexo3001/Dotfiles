@@ -1,6 +1,6 @@
 if (&t_Co == 256 || &term == "xterm-256color" || &term == "screen-256color")
   call plug#begin('~/.vim/plugged')
-  Plug 'flexo3001/vim-colors-solarized'
+  Plug 'icymind/NeoSolarized'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mhinz/vim-signify'
@@ -29,8 +29,8 @@ if (&t_Co == 256 || &term == "xterm-256color" || &term == "screen-256color")
       \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   endif
 
-  set background=light
-  colorscheme solarized
+  set termguicolors
+  colorscheme NeoSolarized
 endif
 
 filetype plugin indent on
