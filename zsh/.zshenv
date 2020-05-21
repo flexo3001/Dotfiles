@@ -1,5 +1,4 @@
-export GOPATH="$HOME/.go"
-export GOPATH="$GOPATH:$HOME/Development/go"
+export GOPATH="$HOME/Development/go"
 export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$HOME/.go/bin:$GOPATH/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/go/bin:$PATH"
 
 if [[ -x /usr/bin/nvim ]]; then
