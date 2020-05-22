@@ -29,6 +29,7 @@ if (&t_Co == 256 || &term == "xterm-256color" || &term == "screen-256color")
       \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   endif
 
+  set background=light
   set termguicolors
   colorscheme NeoSolarized
 endif
