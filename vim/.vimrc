@@ -1,16 +1,13 @@
 if (&t_Co == 256 || &term == "xterm-256color" || &term == "screen-256color")
   call plug#begin('~/.vim/plugged')
-  "Plug 'icymind/NeoSolarized'
-  Plug 'flexo3001/vim-colors-solarized'
+  Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'mhinz/vim-signify'
+  Plug 'romainl/flattened'
   Plug 'tpope/vim-eunuch'
   call plug#end()
 
   let $FZF_DEFAULT_COMMAND = 'find .'
-  let g:signify_realtime = 1
-
   let g:fzf_colors =
    \ { 'fg':      ['fg', 'Normal'],
      \ 'bg':      ['bg', 'Normal'],
@@ -30,9 +27,7 @@ if (&t_Co == 256 || &term == "xterm-256color" || &term == "screen-256color")
       \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   endif
 
-  set background=light
-  "set termguicolors
-  colorscheme solarized
+  colorscheme flattened_light
 endif
 
 filetype plugin indent on
