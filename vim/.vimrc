@@ -36,12 +36,7 @@ let maplocalleader=" "
 
 nnoremap <silent> <Leader>p :set paste!<CR>
 nnoremap <silent> <Leader>h :nohlsearch<CR>
-nnoremap <silent> <Leader>s
-             \ : if exists("syntax_on") <BAR>
-             \    syntax off <BAR>
-             \ else <BAR>
-             \    syntax enable <BAR>
-             \ endif<CR>
+nnoremap <silent> <Leader>s :if exists("syntax_on") <BAR> syntax off <BAR> else <BAR> syntax enable <BAR> endif<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
