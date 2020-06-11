@@ -4,3 +4,6 @@ source $HOME/.bin/borg_common
 
 info "Starting backup"
 borg create --list --verbose --filter AME --stats --show-rc --compression zstd,3 ::'{hostname}-{now}' $BACKUP_PATHS
+
+info "Pruning snapshots"
+borg prune --list --prefix '{hostname}-' --show-rc --keep-hourly $KEEP_HOURS --keep-daily $KEEP_DAYS --keep-weekly $KEEP_WEEKS --keep-monthly $KEEP_MONTHS --keep-yearly $KEEP_YEARS
