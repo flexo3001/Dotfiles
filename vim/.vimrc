@@ -1,31 +1,9 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
   Plug 'romainl/flattened'
   Plug 'tpope/vim-eunuch'
   call plug#end()
-
-  let $FZF_DEFAULT_COMMAND = 'find .'
-  let g:fzf_colors =
-   \ { 'fg':      ['fg', 'Normal'],
-     \ 'bg':      ['bg', 'Normal'],
-     \ 'fg+':     ['fg', 'Normal'],
-     \ 'bg+':     ['bg', 'CursorLine'],
-     \ 'hl':      ['fg', 'Error'],
-     \ 'hl+':     ['fg', 'Error'],
-     \ 'pointer': ['fg', 'Normal'],
-     \ 'info':    ['fg', 'Comment'],
-     \ 'prompt':  ['fg', 'Normal'],
-     \ 'spinner': ['fg', 'Normal'],
-     \ 'border':  ['fg', 'StatusLine'],
-     \ 'header':  ['fg', 'Normal']}
-  if has('nvim')
-    autocmd! FileType fzf
-    autocmd  FileType fzf set laststatus=0 noshowmode noruler
-      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-  endif
 
   colorscheme flattened_light
 endif
@@ -61,8 +39,6 @@ nnoremap <silent> <Leader>s
              \ else <BAR>
              \    syntax enable <BAR>
              \ endif<CR>
-nnoremap <silent> <Leader>f :FZF<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
 
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
