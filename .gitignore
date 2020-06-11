@@ -1,0 +1,8 @@
+vim/.vim/plugged/*
+vim/.vim/.netrwhist
+wiki
+*.old
+__*
+*.pyc
+*.pyo
+timers.target.wants

@@ -1,0 +1,10 @@
+[Unit]
+Description=prune borg snapshots
+After=restic-backup.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.bin/restic_prune
+
+[Install]
+WantedBy=multi-user.target

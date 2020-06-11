@@ -1,0 +1,10 @@
+[Unit]
+Description=prune borg snapshots
+
+[Timer]
+Persistent=true
+OnCalendar=daily
+Unit=borg-prune.service
+
+[Install]
+WantedBy=timers.target

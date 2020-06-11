@@ -1,0 +1,10 @@
+[Unit]
+Description=borg backup
+Before=borg-prune.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.bin/borg_backup
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,46 @@
+#!/bin/bash
+
+read_config() {
+  # variables
+
+  #BACKUP_PATHS="/etc /home/docker/volumes /root"
+  #KEEP_HOURS=96
+  #KEEP_DAYS=31
+  #KEEP_WEEKS=8
+  #KEEP_MONTHS=12
+  #KEEP_YEARS=3
+  #BORG_REPO=ssh://foo@bar:23/dir
+  #BORG_PASSPHRASE=""
+
+  if [[ ! -f "/etc/borg/env" && ! -f "$HOME/.config/borg/env" && ! -f "./env" ]]; then
+    echo "no config provided"
+    exit 1
+  fi
+
+  source ./env 2> /dev/null || source $HOME/.config/borg/env 2> /dev/null || source /etc/borg/env 2> /dev/null
+}
+
+info() { printf "\n\e[1m%s\e[0m\n" "$*" >&2; }
+
+info "Testing if borg is already running..."
+if pgrep -x "borg" &> /dev/null; then
+  echo "borg is already runnning"
+  exit 1
+fi
+echo "Done"
+
+info "Testing connection..."
+ping -c 3 192.168.178.100 &> /dev/null
+
+if [[ $? > 0 ]]; then
+
+  ping -c 3 1.1.1.1 &> /dev/null
+
+  if [[ $? > 0 ]]; then
+    info "Not connected."
+    exit 1
+  fi
+fi
+echo "Done"
+
+read_config

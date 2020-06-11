@@ -1,0 +1,14 @@
+[user]
+    name = Marco Kundt
+    email = mrckndt@riseup.net
+[core]
+    compression = 9
+    excludesfile = ~/.config/git/ignore
+[color]
+    ui = auto
+[diff]
+    tool = vimdiff
+[push]
+    default = current
+[help]
+    autocorrect = 1

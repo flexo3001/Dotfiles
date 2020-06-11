@@ -1,0 +1,50 @@
+#!/bin/bash
+
+read_config() {
+  # variables
+
+  #CACHE_DIR="$HOME/.cache/restic"
+  #BACKUP_PATHS="/etc /home/docker/volumes /root"
+  #BACKUP_EXCLUDES="-e /home/docker/volumes/syncthing"
+  #KEEP_HOURS=96
+  #KEEP_DAYS=31
+  #KEEP_WEEKS=8
+  #KEEP_MONTHS=12
+  #KEEP_YEARS=3
+  #RESTIC_REPOSITORY="b2:backup"
+  #RESTIC_PASSWORD="PASSWORD"
+  #B2_ACCOUNT_ID="ID"
+  #B2_ACCOUNT_KEY="KEY"
+
+  if [[ ! -f "/etc/restic/env" && ! -f "$HOME/.config/restic/env" && ! -f "./env" ]]; then
+    echo "no config provided"
+    exit 1
+  fi
+
+  source ./env 2> /dev/null || source $HOME/.config/restic/env 2> /dev/null || source /etc/restic/env 2> /dev/null
+}
+
+info() { printf "\n\e[1m%s\e[0m\n" "$*" >&2; }
+
+info "Testing if restic is already running..."
+if pgrep -x "restic" &> /dev/null; then
+  echo "Restic is already runnning"
+  exit 1
+fi
+echo "Done"
+
+info "Testing connection..."
+ping -c 3 192.168.178.100 &> /dev/null
+
+if [[ $? > 0 ]]; then
+
+  ping -c 3 1.1.1.1 &> /dev/null
+
+  if [[ $? > 0 ]]; then
+    info "Not connected."
+    exit 1
+  fi
+fi
+echo "Done"
+
+read_config

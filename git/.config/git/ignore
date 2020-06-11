@@ -1,0 +1,12 @@
+*.error*
+*.bak
+*.log
+*.o
+*.old
+*.pdf
+*.tmp
+*.sw[nop]
+.*~
+Session.vim
+tags
+.DS_Store

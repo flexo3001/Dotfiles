@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source $HOME/.bin/borg_common
+
+info "Starting backup"
+borg create --list --verbose --filter AME --stats --show-rc --compression zstd,3 ::'{hostname}-{now}' $BACKUP_PATHS

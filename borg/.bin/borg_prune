@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source $HOME/.bin/borg_common
+
+info "Pruning snapshots"
+borg prune --list --prefix '{hostname}-' --show-rc --keep-hourly $KEEP_HOURS --keep-daily $KEEP_DAYS --keep-weekly $KEEP_WEEKS --keep-monthly $KEEP_MONTHS --keep-yearly $KEEP_YEARS

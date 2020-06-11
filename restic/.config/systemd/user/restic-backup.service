@@ -1,0 +1,10 @@
+[Unit]
+Description=borg backup
+Before=restic-prune.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.bin/restic_backup
+
+[Install]
+WantedBy=multi-user.target
