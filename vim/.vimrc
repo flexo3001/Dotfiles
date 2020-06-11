@@ -43,7 +43,7 @@ nnoremap <silent> <Leader>s
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
-augroup flexo
+augroup vimrc
   autocmd!
   autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
   autocmd FileType puppet setlocal tw=140
