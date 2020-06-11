@@ -1,11 +1,15 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
+  Plug 'itchyny/lightline.vim'
   Plug 'romainl/flattened'
   Plug 'tpope/vim-eunuch'
   call plug#end()
 
   colorscheme flattened_light
+  let g:lightline = { 'colorscheme': 'flattened_light' }
+
+  set noshowmode
 endif
 
 filetype plugin indent on
@@ -23,7 +27,6 @@ set number
 set printoptions=paper:A4,syntax:n,number:y
 set shiftwidth=4
 set showbreak=↪\
-set statusline=[%n]\ %<%f\ %h%w%m%r%=%{&fileencoding?&fileencoding:&encoding}[%{&fileformat}\]\ %y\ %l,%c%V\ %P
 set textwidth=120
 set wrapscan
 set path+=**
@@ -39,7 +42,6 @@ nnoremap <silent> <Leader>s
              \ else <BAR>
              \    syntax enable <BAR>
              \ endif<CR>
-
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
