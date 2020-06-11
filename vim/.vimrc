@@ -1,4 +1,4 @@
-if (&t_Co == 256 || &term == "xterm-256color" || &term == "screen-256color")
+if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -48,6 +48,7 @@ set showbreak=↪\
 set statusline=[%n]\ %<%f\ %h%w%m%r%=%{&fileencoding?&fileencoding:&encoding}[%{&fileformat}\]\ %y\ %l,%c%V\ %P
 set textwidth=120
 set wrapscan
+set path+=**
 
 let mapleader=" "
 let maplocalleader=" "
