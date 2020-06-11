@@ -1,7 +1,0 @@
-#!/bin/bash
-
-source $HOME/.bin/restic_common
-
-info "Starting backup"
-restic -r $RESTIC_REPOSITORY unlock
-restic --cache-dir $CACHE_DIR -r $RESTIC_REPOSITORY backup $BACKUP_PATHS $BACKUP_EXCLUDES
