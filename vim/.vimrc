@@ -1,11 +1,9 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   call plug#begin('~/.vim/plugged')
-  Plug 'mhinz/vim-signify'
+  Plug 'airblade/vim-gitgutter'
   Plug 'romainl/flattened'
   Plug 'tpope/vim-eunuch'
   call plug#end()
-
-  let g:signify_realtime = 1
 
   colorscheme flattened_light
 endif
