@@ -2,7 +2,6 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'romainl/flattened'
-  Plug 'tpope/vim-eunuch'
   call plug#end()
 
   colorscheme flattened_light
