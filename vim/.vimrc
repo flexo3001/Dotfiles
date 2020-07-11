@@ -1,15 +1,17 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   call plug#begin('~/.vim/plugged')
-  Plug 'airblade/vim-gitgutter'
-  Plug 'romainl/flattened'
+  Plug 'flexo3001/vim-colors-solarized'
+  Plug 'mhinz/vim-signify'
   call plug#end()
 
-  colorscheme flattened_light
+  colorscheme solarized
+  set background=light
 endif
 
 filetype plugin indent on
 
 set autoindent
+set autoread
 set autowrite
 set expandtab
 set ignorecase
@@ -22,8 +24,9 @@ set number
 set printoptions=paper:A4,syntax:n,number:y
 set shiftwidth=4
 set showbreak=↪\
-set statusline=[%n]\ %<%f\ %h%w%m%r%=%{&fileencoding?&fileencoding:&encoding}[%{&fileformat}\]\ %y\ %l,%c%V\ %P
+set statusline=\(%n\)\ %<%.99f\ %y%w%m%r%=%-14.(%l,%c%V%)\ %P
 set textwidth=120
+set clipboard+=unnamedplus
 set wrapscan
 set path+=**
 
