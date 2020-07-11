@@ -62,8 +62,8 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' menu select=5
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats "[%{$fg_bold[magenta]%}%b%{$reset_color%}]"
-zstyle ':vcs_info:*' actionformats "[%{$fg_bold[magenta]%}%b%{$reset_color%}|%a]"
+zstyle ':vcs_info:*' formats "[%{$fg_bold[cyan]%}%b%{$reset_color%}]"
+zstyle ':vcs_info:*' actionformats "[%{$fg_bold[cyan]%}%b%{$reset_color%}|%a]"
 
 PROMPT="(%M) %~ %{$fg[red]%}%(#~#~$)%{$reset_color%} "
 RPROMPT="\$vcs_info_msg_0_"
