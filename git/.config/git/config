@@ -7,7 +7,7 @@
 [color]
     ui = auto
 [diff]
-    tool = vimdiff
+    tool = nvim -d
 [push]
     default = current
 [help]
