@@ -89,4 +89,6 @@ sshn() {
   ssh -N -L ${1}:localhost:${2} $3
 }
 
-eval "$(dircolors)"
+if [[ -x /usr/bin/dircolors ]]; then
+  eval "$(dircolors)"
+fi
