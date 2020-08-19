@@ -22,8 +22,7 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color" || has("gui_vimr"))
         \ 'prompt':  ['fg', 'Normal'],
         \ 'spinner': ['fg', 'Normal'],
         \ 'border':  ['fg', 'StatusLine'],
-        \ 'header':  ['fg', 'Normal']
-    }
+        \ 'header':  ['fg', 'Normal'] }
 
     if has('nvim')
         autocmd! FileType fzf
