@@ -66,6 +66,9 @@ nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
+noremap p p`[
+noremap P P`[
+
 augroup vimrc
     autocmd!
     autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
