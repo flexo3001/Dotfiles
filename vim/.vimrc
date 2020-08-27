@@ -4,6 +4,7 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color" || has("gui_vimr"))
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mhinz/vim-signify'
+    Plug 'neovimhaskell/haskell-vim'
     Plug 'pearofducks/ansible-vim'
     call plug#end()
 
