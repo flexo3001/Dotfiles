@@ -44,6 +44,7 @@ set laststatus=2
 set linebreak
 set list listchars=trail:·,tab:▸\ ,eol:¬
 set mouse=a
+set nofoldenable
 set nojoinspaces
 set number
 set printoptions=paper:A4,syntax:n,number:y
