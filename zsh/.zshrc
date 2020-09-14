@@ -59,7 +59,7 @@ zstyle ':completion:*:commands' rehash 1
 zstyle ':completion:*' completer _oldlist _expand _complete _files _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' use-cache yes
-zstyle ':completion:*' menu select=5
+zstyle ':completion:*' menu select=2
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats "[%{$fg_bold[cyan]%}%b%{$reset_color%}]"
@@ -79,7 +79,7 @@ preexec () {
 
 alias :q="exit"
 alias ..="cd .."
-alias open="xdg-open"
+[[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
 
 wttr() {
   curl wttr.in/$1
@@ -89,6 +89,4 @@ sshn() {
   ssh -N -L ${1}:localhost:${2} $3
 }
 
-if [[ -x /usr/bin/dircolors ]]; then
-  eval "$(dircolors)"
-fi
+[[ -x /usr/bin/dircolors ]] && eval "$(dircolors)"
