@@ -4,6 +4,8 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color" || has("gui_vimr"))
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mhinz/vim-signify'
+
+    " highlighting plugins
     Plug 'neovimhaskell/haskell-vim'
     Plug 'pearofducks/ansible-vim'
     call plug#end()
@@ -53,7 +55,7 @@ set showbreak=↪\
 set statusline=\(%n\)\ %<%.99f\ %y%w%m%r%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
 set textwidth=120
-"set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 set wrapscan
 
 let mapleader=" "
