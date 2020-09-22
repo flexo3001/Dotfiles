@@ -20,4 +20,9 @@ hook global WinSetOption filetype=go %{
 add-highlighter global/number-lines number-lines
 add-highlighter global/show-whitespaces show-whitespaces
 
-colorscheme solarized-light
+evaluate-commands %sh{
+    case $TERM in
+        xterm-256color) printf "colorscheme solarized-light";;
+        screen-256color) printf "colorscheme solarized-light";;
+    esac
+}
