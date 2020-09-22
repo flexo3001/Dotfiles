@@ -1,2 +1,23 @@
-add-highlighter global/ number-lines
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+plug "lePerdu/kakboard" %{
+    hook global WinCreate .* %{ kakboard-enable }
+}
+
+hook global WinCreate ^[^*]+$ %{
+    try editorconfig-load
+}
+
+hook global WinSetOption filetype=(markdown|yaml|yml) %{
+    set window indentwidth 2
+}
+
+hook global WinSetOption filetype=go %{
+    noexpandtab
+    set window indentwidth 0
+}
+
+add-highlighter global/number-lines number-lines
+add-highlighter global/show-whitespaces show-whitespaces
+
 colorscheme solarized-light
