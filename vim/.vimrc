@@ -5,7 +5,8 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color" || has("gui_vimr"))
     Plug 'junegunn/fzf.vim'
     Plug 'mhinz/vim-signify'
 
-    " highlighting plugins
+    " language plugins
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'neovimhaskell/haskell-vim'
     Plug 'pearofducks/ansible-vim'
     call plug#end()
