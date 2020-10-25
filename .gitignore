@@ -1,6 +1,7 @@
 vim/.vim/plugged/*
 vim/.vim/.netrwhist
 wiki
+*.orig
 *.old
 __*
 *.pyc
