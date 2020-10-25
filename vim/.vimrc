@@ -56,7 +56,7 @@ set showbreak=↪\
 set statusline=\(%n\)\ %<%.99f\ %y%w%m%r%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
 set textwidth=120
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
 set wrapscan
 
 let mapleader=" "
