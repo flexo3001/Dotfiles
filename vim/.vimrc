@@ -27,12 +27,6 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color" || has("gui_vimr"))
         \ 'spinner': ['fg', 'Normal'],
         \ 'border':  ['fg', 'StatusLine'],
         \ 'header':  ['fg', 'Normal'] }
-
-    if has('nvim')
-        autocmd! FileType fzf
-        autocmd  FileType fzf set laststatus=0 noshowmode noruler
-        \ | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-    endif
 endif
 
 filetype plugin indent on
