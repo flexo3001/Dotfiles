@@ -86,29 +86,19 @@ preexec () {
 alias :q="exit"
 alias ..="cd .."
 [[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
+[[ -x /usr/bin/yay ]] && alias yay="yay --aur --removemake"
 
-wttr() {
-    curl wttr.in/$1
-}
-
-sshn() {
+sshl() {
     ssh -N -L ${1}:localhost:${2} $3
 }
 
-dupfind() {
-    if [ $# -lt 1 ]; then
-        echo "Usage: $0 THREAD_COUNT [directory] ..." > /dev/stderr
-    fi
-
-    if ! [[ "$1" =~ ^[0-9]+$ ]]; then
-        echo "THREAD_COUNT needs to be an integer." > /dev/stderr
-    else
-        if [ $# -lt 2 ]; then
-            find . ! -empty -type f -print0 | xargs -0 -n1 -P${1} md5sum | sort | uniq -w32 -dD
-        else
-            find ${@:2:128} ! -empty -type f -print0 | xargs -0 -n1 -P${1} md5sum | sort | uniq -w32 -dD
-        fi
-    fi
-}
-
 [[ -x /usr/bin/dircolors ]] && eval "$(dircolors)"
+
+export GOPATH="$HOME/Code/go"
+export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$HOME/.go/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
+
+if [[ -x /usr/bin/nvim ]]; then
+    export EDITOR=nvim
+elif [[ -x /usr/bin/vim ]]; then
+    export EDITOR=vim
+fi
