@@ -1,4 +1,4 @@
-if ($TERM=~"xterm-256color" || $TERM=~"screen-256color" || has("gui_vimr"))
+if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
     Plug 'flexo3001/vim-colors-solarized'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
