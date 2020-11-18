@@ -7,3 +7,4 @@ __*
 *.pyc
 *.pyo
 timers.target.wants
+gitk
