@@ -21,7 +21,7 @@ read_config() {
     exit 1
   fi
 
-  source ./env 2> /dev/null || source $HOME/.config/restic/env 2> /dev/null || source /etc/restic/env 2> /dev/null
+  . $HOME/.config/restic/env 2> /dev/null || . /etc/restic/env 2> /dev/null
 }
 
 info() { printf "\n\e[1m%s\e[0m\n" "$*" >&2; }

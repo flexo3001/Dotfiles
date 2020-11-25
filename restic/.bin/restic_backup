@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.bin/restic_common
+. $HOME/.bin/restic_common
 export RESTIC_PASSWORD="${RESTIC_PASSWORD}"
 
 restic -r $RESTIC_REPOSITORY unlock
