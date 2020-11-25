@@ -1,5 +1,5 @@
 [Unit]
-Description=borg backup
+Description=restic backup
 Before=restic-prune.service
 
 [Service]
