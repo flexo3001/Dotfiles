@@ -1,0 +1,10 @@
+[Unit]
+Description=prune restic snapshots
+
+[Timer]
+Persistent=true
+OnCalendar=daily
+Unit=restic-prune.service
+
+[Install]
+WantedBy=timers.target
