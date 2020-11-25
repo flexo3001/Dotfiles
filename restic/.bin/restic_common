@@ -11,8 +11,10 @@ read_config() {
   #KEEP_WEEKS=8
   #KEEP_MONTHS=12
   #KEEP_YEARS=3
-  #RESTIC_REPOSITORY="b2:backup"
   #RESTIC_PASSWORD="PASSWORD"
+  #RESTIC_REPOSITORY="sftp://foo@${BACKUP_SERVER}:22//home/bar"
+  # or for b2
+  #RESTIC_REPOSITORY="b2:backup"
   #B2_ACCOUNT_ID="ID"
   #B2_ACCOUNT_KEY="KEY"
 
