@@ -1,5 +1,5 @@
 [Unit]
-Description=prune borg snapshots
+Description=restic prune snapshots
 After=restic-backup.service
 
 [Service]

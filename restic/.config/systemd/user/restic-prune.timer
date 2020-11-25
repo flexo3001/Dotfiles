@@ -1,9 +1,9 @@
 [Unit]
-Description=prune restic snapshots
+Description=restic prune snapshots
 
 [Timer]
 Persistent=true
-OnCalendar=daily
+OnCalendar=weekly
 Unit=restic-prune.service
 
 [Install]
