@@ -1,6 +1,8 @@
 [Unit]
 Description=restic prune snapshots
 After=restic-backup.service
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 Type=oneshot
