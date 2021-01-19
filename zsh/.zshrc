@@ -66,7 +66,7 @@ zstyle ':vcs_info:*' formats "[%{$fg_bold[cyan]%}%b%{$reset_color%}]"
 zstyle ':vcs_info:*' actionformats "[%{$fg_bold[cyan]%}%b%{$reset_color%}|%a]"
 
 if [[ -f /run/.containerenv && -f /run/.toolboxenv ]]; then
-    TOOLBOX="%{$fg_bold[magenta]%}⬢%{$reset_color%} "
+    TOOLBOX="%F{13}⬢%f "
 else
     TOOLBOX=""
 fi
@@ -86,10 +86,25 @@ preexec () {
 alias :q="exit"
 alias ..="cd .."
 [[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
-[[ -x /usr/bin/yay ]] && alias yay="yay --aur --removemake"
 
 sshl() {
     ssh -N -L ${1}:localhost:${2} $3
+}
+
+toolbox() {
+    if [[ $@ =~ (enter) && ! $@ =~ (-r) && ! $@ =~ (--release) && ! $@ =~ (-d) && ! $@ =~ (--distro) ]]; then
+
+        CONTAINER=$(sed -E -e 's/enter|--container|-c|toolbox|\t|\n|\s//g' <<< $@)
+
+        if [[ ! -z ${CONTAINER} && ${CONTAINER} =~ "^[a-zA-Z0-9-]{1,15}$" ]]; then
+            command toolbox --container ${CONTAINER} run sudo hostname ${CONTAINER}
+            command toolbox enter ${CONTAINER}
+        else
+            command toolbox enter
+        fi
+    else
+        command toolbox $@
+    fi
 }
 
 [[ -x /usr/bin/dircolors ]] && eval "$(dircolors)"
