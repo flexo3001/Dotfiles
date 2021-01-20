@@ -92,7 +92,7 @@ sshl() {
 }
 
 toolbox() {
-    if [[ $@ =~ (enter) && ! $@ =~ (-r) && ! $@ =~ (--release) && ! $@ =~ (-d) && ! $@ =~ (--distro) ]]; then
+    if [[ $@ =~ (enter) && ! $@ =~ (-r|--release|-d|--distro) ]]; then
 
         CONTAINER=$(sed -E -e 's/enter|--container|-c|toolbox|\t|\n|\s//g' <<< $@)
 
