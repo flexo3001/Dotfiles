@@ -18,7 +18,7 @@ read_config() {
   #B2_ACCOUNT_ID="ID"
   #B2_ACCOUNT_KEY="KEY"
 
-  if [[ ! -f "/etc/restic/env" && ! -f "$HOME/.config/restic/env" && ! -f "./env" ]]; then
+  if [[ ! -f "/etc/restic/env" && ! -f "$HOME/.config/restic/env" ]]; then
     echo "no config provided"
     exit 1
   fi
@@ -35,22 +35,12 @@ if pgrep -x "restic" &> /dev/null; then
 fi
 echo "Done"
 
-info "Testing connection..."
-ping -c 3 192.168.178.100 &> /dev/null
-
-if [[ $? > 0 ]]; then
-
-  ping -c 3 10.0.1.3 &> /dev/null
-
-  if [[ $? > 0 ]]; then
-    info "Not connected."
-    exit 1
-  fi
-  BACKUP_SERVER="10.0.1.3"
-fi
-BACKUP_SERVER="192.168.178.100"
 info "Updating restic..."
 restic self-update
+echo "Done"
+
+info "60s delay (in case we just woke up)..."
+sleep 60
 echo "Done"
 
 read_config
