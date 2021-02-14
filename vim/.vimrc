@@ -6,7 +6,6 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     Plug 'mhinz/vim-signify'
 
     " language plugins
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'neovimhaskell/haskell-vim'
     Plug 'pearofducks/ansible-vim'
     call plug#end()
