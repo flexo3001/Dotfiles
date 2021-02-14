@@ -56,18 +56,15 @@ set wrapscan
 let mapleader=" "
 let maplocalleader=" "
 
-nnoremap <silent> <Leader>p :set paste!<CR>
-nnoremap <silent> <Leader>h :nohlsearch<CR>
-nnoremap <silent> <Leader>s :if exists("syntax_on") <BAR> syntax off <BAR> else <BAR> syntax enable <BAR> endif<CR>
+nnoremap <silent> <esc><esc> :nohls<CR>
 nnoremap <silent> <Leader>f :FZF<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
-noremap p p`[
-noremap P P`[
-
+"noremap p p`[
+"noremap P P`[
 
 augroup vimrc
     autocmd!
