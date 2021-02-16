@@ -109,8 +109,8 @@ toolbox() {
 
 [[ -x /usr/bin/dircolors ]] && eval "$(dircolors)"
 
-export GOPATH="$HOME/Code/go"
-export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$HOME/.go/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
+export GOPATH="$HOME/.go"
+export PATH="$HOME/.radicle/bin:$HOME/.cargo/bin:$HOME/.gem/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
 
 if [[ -x /usr/bin/nvim ]]; then
     export EDITOR=nvim
