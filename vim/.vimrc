@@ -1,8 +1,6 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
     Plug 'flexo3001/vim-colors-solarized'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
     Plug 'mhinz/vim-signify'
 
     " language plugins
@@ -12,20 +10,6 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
 
     colorscheme solarized
     set background=light
-
-    let g:fzf_colors = {
-        \ 'fg':      ['fg', 'Normal'],
-        \ 'bg':      ['bg', 'Normal'],
-        \ 'fg+':     ['fg', 'Normal'],
-        \ 'bg+':     ['bg', 'CursorLine'],
-        \ 'hl':      ['fg', 'Error'],
-        \ 'hl+':     ['fg', 'Error'],
-        \ 'pointer': ['fg', 'Normal'],
-        \ 'info':    ['fg', 'Comment'],
-        \ 'prompt':  ['fg', 'Normal'],
-        \ 'spinner': ['fg', 'Normal'],
-        \ 'border':  ['fg', 'StatusLine'],
-        \ 'header':  ['fg', 'Normal'] }
 endif
 
 filetype plugin indent on
@@ -57,8 +41,6 @@ let mapleader=" "
 let maplocalleader=" "
 
 nnoremap <silent> <esc><esc> :nohls<CR>
-nnoremap <silent> <Leader>f :FZF<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
 
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
