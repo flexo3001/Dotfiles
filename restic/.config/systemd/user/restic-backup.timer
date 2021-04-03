@@ -4,7 +4,6 @@ Description=restic backup
 [Timer]
 Persistent=true
 OnCalendar=hourly
-Unit=restic-backup.service
 
 [Install]
 WantedBy=timers.target

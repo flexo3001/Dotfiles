@@ -1,0 +1,62 @@
+#!/bin/bash
+
+read_config() {
+  # variables
+  #CACHE_DIR="$HOME/.cache/restic"
+  #BACKUP_PATHS="/etc /home/docker/volumes /root"
+  #EXCLUDES_FILE="$HOME/.config/restic/excludes"
+  #KEEP_HOURS=96
+  #KEEP_DAYS=31
+  #KEEP_WEEKS=8
+  #KEEP_MONTHS=12
+  #KEEP_YEARS=3
+  #RESTIC_PASSWORD="PASSWORD"
+  #RESTIC_REPOSITORY="sftp://foo@192.168.0.1:22//home/bar"
+  # or for b2
+  #RESTIC_REPOSITORY="b2:backup"
+  #B2_ACCOUNT_ID="ID"
+  #B2_ACCOUNT_KEY="KEY"
+
+  if [[ ! -f "$HOME/.config/restic/env" && ! -f "/etc/restic/env" ]]; then
+    echo "no config provided"
+    exit 1
+  fi
+
+  . $HOME/.config/restic/env 2> /dev/null || . /etc/restic/env 2> /dev/null
+  export RESTIC_PASSWORD="${RESTIC_PASSWORD}"
+}
+
+info() { printf "\n\e[1m%s\e[0m\n" "$*" >&2; }
+
+info "Testing if restic is already running..."
+if pgrep -x "restic" &> /dev/null; then
+  echo "-> Restic is already runnning"
+  exit 1
+fi
+info "Done"
+
+info "Updating restic..."
+restic self-update
+info "Done"
+
+read_config
+
+#restic -r ${RESTIC_REPOSITORY} unlock
+if [[ $1 == 'prune' ]]; then
+  info "Pruning snapshots..."
+  restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} prune --max-unused 0
+  info "Done"
+else
+  info "Starting backup..."
+  restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} backup ${BACKUP_PATHS} \
+    --exclude-file ${EXCLUDES_FILE}
+  info "Done"
+
+  info "Forgetting snapshots..."
+  restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} forget \
+    --keep-hourly ${KEEP_HOURS} --keep-daily ${KEEP_DAYS} \
+    --keep-weekly ${KEEP_WEEKS} --keep-monthly ${KEEP_WEEKS} \
+    --keep-yearly ${KEEP_YEARS} \
+    --prune
+  info "Done"
+fi

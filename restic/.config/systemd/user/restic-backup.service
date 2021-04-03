@@ -1,12 +1,10 @@
 [Unit]
 Description=restic backup
-Before=restic-prune.service
-Wants=network-online.target
-After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.bin/restic_backup
+ExecStartPre=/usr/bin/nm-online -q
+ExecStart=%h/.bin/restic-backup
 
 [Install]
 WantedBy=multi-user.target

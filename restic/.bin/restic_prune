@@ -1,8 +1,0 @@
-#!/bin/bash
-
-. $HOME/.bin/restic_common
-export RESTIC_PASSWORD="${RESTIC_PASSWORD}"
-export PATH="$HOME/.local/bin:$PATH"
-
-info "Pruning snapshots"
-restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} prune
