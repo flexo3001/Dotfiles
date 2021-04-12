@@ -31,6 +31,8 @@ set number
 set printoptions=paper:A4,syntax:n,number:y
 set shiftwidth=4
 set showbreak=↪\
+set splitbelow
+set splitright
 set statusline=\(%n\)\ %<%.99f\ %y%w%m%r%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
 set textwidth=120
