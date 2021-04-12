@@ -14,6 +14,8 @@ endif
 
 filetype plugin indent on
 
+let g:markdown_fenced_languages = ['python', 'bash=sh', 'go', 'c', 'cpp', 'yaml', 'json', 'sql']
+
 set autoindent
 set autoread
 set autowrite
