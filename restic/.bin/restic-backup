@@ -36,27 +36,26 @@ fi
 info "Done"
 
 info "Updating restic..."
-restic self-update
+$HOME/.local/bin/restic self-update
 info "Done"
 
 read_config
 
-#restic -r ${RESTIC_REPOSITORY} unlock
+restic -r ${RESTIC_REPOSITORY} unlock
 if [[ $1 == 'prune' ]]; then
   info "Pruning snapshots..."
-  restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} prune --max-unused 0
+  $HOME/.local/bin/restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} prune --max-unused 0
   info "Done"
 else
   info "Starting backup..."
-  restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} backup ${BACKUP_PATHS} \
+  $HOME/.local/bin/restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} backup ${BACKUP_PATHS} \
     --exclude-file ${EXCLUDES_FILE}
   info "Done"
 
   info "Forgetting snapshots..."
-  restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} forget \
+  $HOME/.local/bin/restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} forget \
     --keep-hourly ${KEEP_HOURS} --keep-daily ${KEEP_DAYS} \
     --keep-weekly ${KEEP_WEEKS} --keep-monthly ${KEEP_WEEKS} \
-    --keep-yearly ${KEEP_YEARS} \
-    --prune
+    --keep-yearly ${KEEP_YEARS} #--prune
   info "Done"
 fi
