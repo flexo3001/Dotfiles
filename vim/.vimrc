@@ -56,6 +56,6 @@ augroup vimrc
     autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
     autocmd BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
     autocmd FileType puppet setlocal tw=140
-    autocmd FileType ruby,yaml setlocal sw=2
+    autocmd FileType bash,zsh,sh,ruby,yaml setlocal sw=2
     autocmd FileType go setlocal noexpandtab sw=8 ts=8
 augroup END
