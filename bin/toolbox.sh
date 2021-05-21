@@ -1,5 +1,7 @@
 #!/bin/bash
 
+toolbox_version=fedora-toolbox-34
+
 bold=$(tput bold)
 reset=$(tput sgr0)
 
@@ -11,8 +13,8 @@ packages=(
     # basic
     'atool' 'p7zip' 'unzip' 'zsh' 'tmux' 'git' 'neovim' 'wl-clipboard' 'bind-utils' 'bmon' 'curl' 'fd-find'
     'file' 'htop' 'nmon' 'mosh' 'ranger' 'stow' 'wget' 'youtube-dl' 'net-tools' 'gocryptfs' 'sshfs' 'netcat'
-    'dstat' 'atop' 'iotop' 'wireguard-tools' 'magic-wormhole' 'khal' 'vdirsyncer'
-    #'khard' 'hledger' 'nnn'
+    'dstat' 'atop' 'iotop' 'wireguard-tools' 'magic-wormhole' 'ncdu' 'sqlite' 'hyperfine'
+    #'khal' 'vdirsyncer' 'khard' 'hledger' 'nnn'
     # ansible
     'ansible' 'openssh'
     # C and compiling
@@ -35,6 +37,12 @@ packages=(
 removals=(
     'subversion'
 )
+
+info 'Stopping toolbox ...'
+podman stop ${toolbox_version}
+
+info 'Delete old toolbox ...'
+toolbox rm ${toolbox_version}
 
 info 'Creating toolbox ...'
 toolbox create
