@@ -23,6 +23,8 @@ packages=(
     'golang' 'golang-x-tools-goimports' 'upx'
     # haskell
     'haskell-platform'
+    # shell
+    'ShellCheck'
     # pandoc
     #'pandoc' 'perl-Image-ExifTool' 'ruby' 'ruby-devel' 'texlive'
     #'texlive-collection-fontsextra' 'texlive-collection-formatsextra' 'texlive-collection-langenglish'
@@ -31,7 +33,7 @@ packages=(
     'cargo' 'rust '
     # header packages for compiling
     'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel'
-    'openssl-devel'
+    'openssl-devel' 'ncurses-static' 'glibc-static' 'readline-static'
 )
 
 removals=(
