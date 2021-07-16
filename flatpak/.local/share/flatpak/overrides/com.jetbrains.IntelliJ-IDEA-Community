@@ -1,0 +1,2 @@
+[Context]
+filesystems=~/.java;~/.jdks;~/Code/java;!host

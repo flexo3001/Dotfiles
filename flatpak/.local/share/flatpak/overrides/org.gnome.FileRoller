@@ -1,0 +1,2 @@
+[Context]
+filesystems=~/Switch;~/Applications;~/Games;xdg-download;!home

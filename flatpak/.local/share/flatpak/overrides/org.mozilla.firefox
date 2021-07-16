@@ -1,0 +1,5 @@
+[Context]
+sockets=fallback-x11;wayland
+
+[Environment]
+GDK_BACKEND=wayland
