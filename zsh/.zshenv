@@ -6,9 +6,9 @@ export GOPATH="$HOME/.go"
 export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$GOPATH/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH"
 
 if [[ -x /usr/bin/nvim ]]; then
-    export EDITOR=nvim
+  export EDITOR=nvim
 elif [[ -x /usr/bin/vim ]]; then
-    export EDITOR=vim
+  export EDITOR=vim
 fi
 
 export LESS=-R
