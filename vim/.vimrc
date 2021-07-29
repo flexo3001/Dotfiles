@@ -1,15 +1,14 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
-    Plug 'cormacrelf/vim-colors-github'
+    Plug 'mrckndt/vim-colors-solarized'
     Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-signify'
     call plug#end()
 
-    colorscheme github
-    let g:lightline = { 'colorscheme': 'github' }
+    colorscheme solarized
+    let g:lightline = { 'colorscheme': 'solarized' }
     set background=light
     set noshowmode
-    set termguicolors
 endif
 
 filetype plugin indent on
@@ -25,7 +24,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
-set list listchars=trail:·,tab:▸\ ,eol:¬
+set list listchars=tab:▸\ ,trail:·
 set mouse=a
 set nofoldenable
 set nojoinspaces
@@ -60,5 +59,5 @@ augroup vimrc
     autocmd FileType go setlocal noexpandtab sw=8 ts=8
 
     " restore cursor
-    autocmd VimLeave * set guicursor=a:ver90
+    "autocmd VimLeave * set guicursor=a:ver90
 augroup END
