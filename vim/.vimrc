@@ -1,14 +1,11 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
     Plug 'mrckndt/vim-colors-solarized'
-    Plug 'itchyny/lightline.vim'
     Plug 'mhinz/vim-signify'
     call plug#end()
 
     colorscheme solarized
-    let g:lightline = { 'colorscheme': 'solarized' }
     set background=light
-    set noshowmode
 endif
 
 filetype plugin indent on
@@ -34,7 +31,7 @@ set shiftwidth=4
 set showbreak=↪\
 set splitbelow
 set splitright
-set statusline=\(%n\)\ %<%.99f\ %y%w%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=\(%n\)\ %<%.99f\ %y\ %w%m%r%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
 set textwidth=120
 set wrapscan
