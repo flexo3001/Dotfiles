@@ -3,6 +3,9 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz vcs_info
 
+HISTSIZE=100000
+SAVEHIST=100000
+
 setopt completeinword
 setopt extended_glob
 setopt noflowcontrol
