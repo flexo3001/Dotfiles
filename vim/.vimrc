@@ -2,6 +2,7 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
     Plug 'mrckndt/vim-colors-solarized'
     Plug 'mhinz/vim-signify'
+    Plug 'neovimhaskell/haskell-vim'
     call plug#end()
 
     colorscheme solarized
@@ -10,7 +11,7 @@ endif
 
 filetype plugin indent on
 
-let g:markdown_fenced_languages = ['python', 'bash=sh', 'go', 'c', 'cpp', 'yaml', 'json', 'sql']
+let g:markdown_fenced_languages = ['python', 'bash=sh', 'go', 'c', 'cpp', 'yaml', 'json', 'sql', 'haskell']
 
 set autoindent
 set autoread
