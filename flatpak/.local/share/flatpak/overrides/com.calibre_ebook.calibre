@@ -1,2 +1,2 @@
 [Context]
-filesystems=xdg-documents;!host
+filesystems=xdg-documents;~/Books:ro;!host
