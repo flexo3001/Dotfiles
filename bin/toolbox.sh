@@ -10,30 +10,32 @@ info() {
 }
 
 packages=(
-    # basic
-    'atool' 'p7zip' 'unzip' 'zsh' 'tmux' 'git' 'neovim' 'wl-clipboard' 'bind-utils' 'bmon' 'curl' 'fd-find'
+    ## basic
+    'atool' 'p7zip' 'p7zip-plugins' 'unzip' 'zsh' 'git' 'neovim' 'wl-clipboard' 'bind-utils' 'bmon' 'curl' 'fd-find'
     'file' 'htop' 'nmon' 'mosh' 'ranger' 'stow' 'wget' 'youtube-dl' 'net-tools' 'gocryptfs' 'sshfs' 'netcat'
-    'dstat' 'atop' 'iotop' 'wireguard-tools' 'magic-wormhole' 'ncdu' 'sqlite' 'hyperfine'
-    #'khal' 'vdirsyncer' 'khard' 'hledger' 'nnn'
-    # ansible
+    'dstat' 'atop' 'iotop' 'magic-wormhole' 'ncdu' 'sqlite' 'hyperfine'
+    #'khal' 'vdirsyncer' 'khard' 'hledger' 'nnn' 'tmux'
+    ## ansible
     'ansible' 'openssh'
-    # C and compiling
+    ## C and compiling
     '@C Development Tools and Libraries'
-    # golang
+    ## golang
     'golang' 'golang-x-tools-goimports' 'upx'
-    # haskell
+    ## haskell
     'haskell-platform'
-    # shell
+    ## shell
     'ShellCheck'
-    # pandoc
-    #'pandoc' 'perl-Image-ExifTool' 'ruby' 'ruby-devel' 'texlive'
-    #'texlive-collection-fontsextra' 'texlive-collection-formatsextra' 'texlive-collection-langenglish'
-    #'texlive-collection-langgerman' 'texlive-collection-latexextra' 'texlive-collection-science' 'wkhtmltopdf'
+    ## pandoc
+    'pandoc' 'perl-Image-ExifTool' 'ruby' 'ruby-devel' 'texlive'
+    'texlive-collection-fontsextra' 'texlive-collection-formatsextra' 'texlive-collection-langenglish'
+    'texlive-collection-langgerman' 'texlive-collection-latexextra' 'texlive-collection-science' 'wkhtmltopdf'
     # rust
     'cargo' 'rust '
-    # header packages for compiling
+    ## header packages for compiling
     'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel'
     'openssl-devel' 'ncurses-static' 'glibc-static' 'readline-static'
+    ## huami-token
+    'python3-pytest' 'python3-requests' 'python3-rich'
 )
 
 removals=(
