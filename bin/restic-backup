@@ -46,7 +46,16 @@ if [[ $1 == 'prune' ]]; then
   info "Pruning snapshots..."
   $HOME/.local/bin/restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} prune --max-unused 0
   info "Done"
+
+  info "Checking repository..."
+  $HOME/.local/bin/restic -r ${RESTIC_REPOSITORY} check
+  info "Done"
 else
+  if ! eval which snapper 2> /dev/null; then
+    # fallback
+    BACKUP_PATHS="/home/flexo"
+  fi
+
   info "Starting backup..."
   $HOME/.local/bin/restic --cache-dir ${CACHE_DIR} -r ${RESTIC_REPOSITORY} backup ${BACKUP_PATHS} \
     --exclude-file ${EXCLUDES_FILE}
