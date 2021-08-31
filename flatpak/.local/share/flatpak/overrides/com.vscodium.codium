@@ -1,2 +1,2 @@
 [Context]
-filesystems=~/Code;xdg-download;!host
+filesystems=~/Mattermost;xdg-download;~/Code;!host
