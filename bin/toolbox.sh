@@ -11,10 +11,7 @@ info() {
 
 packages=(
     ## basic
-    'atool' 'p7zip' 'p7zip-plugins' 'unzip' 'zsh' 'git' 'neovim' 'wl-clipboard' 'bind-utils' 'bmon' 'curl' 'fd-find'
-    'file' 'htop' 'nmon' 'mosh' 'ranger' 'stow' 'wget' 'youtube-dl' 'net-tools' 'gocryptfs' 'sshfs' 'netcat'
-    'dstat' 'atop' 'iotop' 'magic-wormhole' 'ncdu' 'sqlite' 'hyperfine'
-    #'khal' 'vdirsyncer' 'khard' 'hledger' 'nnn' 'tmux'
+    'zsh' 'git' 'neovim' 'wl-clipboard' 'ranger' 'tmux' 'sqlite'
     ## ansible
     'ansible' 'openssh'
     ## C and compiling
@@ -63,6 +60,3 @@ toolbox run sudo dnf remove -y "${removals[@]}"
 info 'Remove unused dependencies and clean caches'
 toolbox run sudo dnf autoremove -y
 toolbox run sudo dnf clean all -y
-
-info 'Installing Ansible modules'
-toolbox run ansible-galaxy collection install ansible.posix community.general
