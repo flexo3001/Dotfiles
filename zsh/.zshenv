@@ -3,7 +3,7 @@ HISTSIZE=500000
 SAVEHIST=$HISTSIZE
 
 export GOPATH="$HOME/.go"
-export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$GOPATH/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$GOPATH/bin:$HOME/.dotfiles/bin:$HOME/.local/bin"
 
 if [[ -x /usr/bin/nvim ]]; then
   export EDITOR=nvim
