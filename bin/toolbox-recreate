@@ -31,6 +31,8 @@ packages=(
     ## header packages for compiling
     'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel'
     'openssl-devel' 'ncurses-static' 'glibc-static' 'readline-static'
+    ## python
+    'python-requests' 'python-PyMySQL' 'python-psycopg2'
     ## huami-token
     'python3-pytest' 'python3-requests' 'python3-rich'
 )
