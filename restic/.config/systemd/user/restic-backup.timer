@@ -1,5 +1,6 @@
 [Unit]
-Description=restic backup
+Description=restic Backup Trigger
+Documentation=man:restic(1)
 
 [Timer]
 Persistent=true

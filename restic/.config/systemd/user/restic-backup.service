@@ -1,10 +1,8 @@
 [Unit]
-Description=restic backup
+Description=restic Backup
+Documentation=man:restic(1)
 
 [Service]
-Type=oneshot
-ExecStartPre=/usr/bin/nm-online -q
-ExecStart=%h/.bin/restic-backup
-
-[Install]
-WantedBy=multi-user.target
+Type=simple
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=%h/.dotfiles/bin/restic-backup
