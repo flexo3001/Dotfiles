@@ -2,6 +2,9 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-signify'
     Plug 'overcache/NeoSolarized'
+
+    " language plugins
+    Plug 'LnL7/vim-nix'
     Plug 'neovimhaskell/haskell-vim'
     call plug#end()
 
