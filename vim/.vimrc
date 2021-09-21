@@ -1,11 +1,11 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#begin('~/.vim/plugged')
-    Plug 'mrckndt/vim-colors-solarized'
     Plug 'mhinz/vim-signify'
+    Plug 'overcache/NeoSolarized'
     Plug 'neovimhaskell/haskell-vim'
     call plug#end()
 
-    colorscheme solarized
+    colorscheme NeoSolarized
     set background=light
 endif
 
