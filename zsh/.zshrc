@@ -71,7 +71,13 @@ else
   TOOLBOX=""
 fi
 
-PROMPT="${TOOLBOX}(%M) %~ %{$fg[red]%}%(#~#~$)%{$reset_color%} "
+if [[ "$NIX_PATH" && "$NIX_PROFILES" && "$NIX_CONF_DIR" ]]; then
+  NIX_CHROOT="%F{4}❄%f "
+else
+  NIX_CHROOT=""
+fi
+
+PROMPT="${NIX_CHROOT}${TOOLBOX}(%M) %~ %{$fg[red]%}%(#~#~$)%{$reset_color%} "
 RPROMPT="\$vcs_info_msg_0_"
 
 precmd () {
