@@ -27,6 +27,7 @@ set mouse=a
 set nofoldenable
 set nojoinspaces
 set number
+set path+=**
 set printoptions=paper:A4,syntax:n,number:y
 set shiftwidth=4
 set showbreak=↪\
