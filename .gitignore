@@ -8,3 +8,4 @@ __*
 *.pyo
 timers.target.wants
 gitk
+.stfolder
