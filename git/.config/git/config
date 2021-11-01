@@ -1,6 +1,7 @@
 [user]
     name = Marco
     email = mrckndt@riseup.net
+    signingkey = 89A36EAC3D3F4AF7
 [core]
     compression = 9
     excludesfile = ~/.config/git/ignore
