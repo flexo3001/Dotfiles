@@ -1,6 +1,6 @@
 #!/bin/bash
 
-toolbox_version=fedora-toolbox-35
+toolbox_version=fedora-toolbox-34
 
 bold=$(tput bold)
 reset=$(tput sgr0)
@@ -19,7 +19,7 @@ packages=(
     ## golang
     'golang' 'golang-x-tools-goimports' 'upx'
     ## haskell
-    'haskell-platform'
+    #'haskell-platform'
     ## shell
     'ShellCheck'
     ## pandoc
@@ -30,7 +30,7 @@ packages=(
     'cargo' 'rust '
     ## header packages for compiling
     'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel'
-    'openssl-devel' 'ncurses-static' 'glibc-static' 'readline-static'
+    'openssl-devel'
     ## python
     'python-requests' 'python-PyMySQL' 'python-psycopg2'
     ## huami-token
@@ -59,6 +59,5 @@ toolbox run sudo dnf install -y "${packages[@]}"
 info 'Remove unused packages'
 toolbox run sudo dnf remove -y "${removals[@]}"
 
-info 'Remove unused dependencies and clean caches'
+info 'Remove unused dependencies'
 toolbox run sudo dnf autoremove -y
-toolbox run sudo dnf clean all -y
