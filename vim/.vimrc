@@ -9,7 +9,6 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     call plug#end()
 
     colorscheme NeoSolarized
-    set background=light
 endif
 
 filetype plugin indent on
