@@ -1,6 +1,6 @@
 #!/bin/bash
 
-toolbox_version=fedora-toolbox-34
+toolbox_version=fedora-toolbox-35
 
 bold=$(tput bold)
 reset=$(tput sgr0)
