@@ -1,5 +1,6 @@
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
-    call plug#begin('~/.vim/plugged')
+    call plug#begin('~/.config/nvim/plugins')
+    Plug 'cloudhead/neovim-fuzzy'
     Plug 'mhinz/vim-signify'
     Plug 'overcache/NeoSolarized'
 
@@ -10,6 +11,7 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
 
     colorscheme NeoSolarized
     set background=light
+    set termguicolors
 endif
 
 filetype plugin indent on
@@ -48,6 +50,8 @@ nnoremap <silent> <esc><esc> :nohls<CR>
 
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
+
+nnoremap <C-p> :FuzzyOpen<CR>
 
 "noremap p p`[
 "noremap P P`[
