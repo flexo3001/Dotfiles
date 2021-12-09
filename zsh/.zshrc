@@ -49,9 +49,9 @@ zstyle ':vcs_info:*' formats "[%{$fg_bold[cyan]%}%b%{$reset_color%}]"
 zstyle ':vcs_info:*' actionformats "[%{$fg_bold[cyan]%}%b%{$reset_color%}|%a]"
 
 if [[ -f /run/.containerenv && -f /run/.toolboxenv ]]; then
-  PREFIX="%F{13}⬢%f"
+  PREFIX="%F{13}⬢%f "
 elif [[ "$NIX_PATH" && "$NIX_PROFILES" && "$NIX_CONF_DIR" ]]; then
-  PREFIX="%F{4}❄%f"
+  PREFIX="%F{4}❄%f "
 else
   PREFIX=""
 fi
@@ -61,7 +61,7 @@ TRUNCATED_PWD="%(5~|.../%3~|%~)"
 # cut shown $PWD after 20 characters
 #TRUNCATED_PWD="%20<...<%~%<<"
 
-PROMPT="${PREFIX} (%M) ${TRUNCATED_PWD} %{$fg[red]%}%(#~#~$)%{$reset_color%} "
+PROMPT="${PREFIX}(%M) ${TRUNCATED_PWD} %{$fg[red]%}%(#~#~$)%{$reset_color%} "
 RPROMPT="\$vcs_info_msg_0_"
 
 precmd () {
