@@ -8,3 +8,4 @@ __*
 timers.target.wants
 gitk
 .stfolder
+Brewfile.lock.json
