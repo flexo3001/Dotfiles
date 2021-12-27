@@ -1,6 +1,7 @@
 #!/bin/bash
 
-toolbox_version=fedora-toolbox-35
+RELEASE=${1:-$(. /lib/os-release && echo $VERSION_ID)}
+NAME="fedora-toolbox-${RELEASE}"
 
 bold=$(tput bold)
 reset=$(tput sgr0)
@@ -11,7 +12,7 @@ info() {
 
 packages=(
     ## basic
-    'zsh' 'git' 'neovim' 'wl-clipboard' 'ranger' 'tmux' 'sqlite'
+    'zsh' 'git' 'neovim' 'wl-clipboard' 'ranger' 'tmux' 'sqlite' 'ripgrep' 'fd-find' 'hyperfine'
     ## ansible
     'ansible' 'openssh'
     ## C and compiling
@@ -27,7 +28,7 @@ packages=(
     #'texlive-collection-fontsextra' 'texlive-collection-formatsextra' 'texlive-collection-langenglish'
     #'texlive-collection-langgerman' 'texlive-collection-latexextra' 'texlive-collection-science' 'wkhtmltopdf'
     ## rust
-    'cargo' 'rust '
+    'cargo' 'rust'
     ## header packages for compiling
     'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel'
     'openssl-devel'
@@ -35,20 +36,20 @@ packages=(
     'python-requests' 'python-PyMySQL' 'python-psycopg2'
     ## huami-token
     'python3-pytest' 'python3-requests' 'python3-rich'
+    ## Mattermost Sphinx
+    'python3-sphinx' 'python3-sphinx-tabs' 'python3-sphinx_rtd_theme' 'python3-myst-parser' 'python3-typing-extensions'
 )
 
 removals=(
     'subversion'
 )
 
-info 'Stopping toolbox ...'
-podman stop ${toolbox_version}
-
-info 'Delete old toolbox ...'
-toolbox rm ${toolbox_version}
+info 'Deleting old toolbox ...'
+podman stop -t 0 ${NAME}
+toolbox rm -f ${NAME}
 
 info 'Creating toolbox ...'
-toolbox create
+toolbox -y create -r ${RELEASE}
 
 info 'Updating toolbox ...'
 toolbox run sudo dnf upgrade -y
@@ -56,8 +57,8 @@ toolbox run sudo dnf upgrade -y
 info 'Installing packages inside toolbox ...'
 toolbox run sudo dnf install -y "${packages[@]}"
 
-info 'Remove unused packages'
+info 'Removing unused packages ...'
 toolbox run sudo dnf remove -y "${removals[@]}"
 
-info 'Remove unused dependencies'
+info 'Removing unused dependencies ...'
 toolbox run sudo dnf autoremove -y
