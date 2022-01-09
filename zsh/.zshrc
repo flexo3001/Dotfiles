@@ -56,8 +56,8 @@ else
   PREFIX=""
 fi
 
-# cut shown $PWD if depth is 5 or more ('~' counts)
-TRUNCATED_PWD="%(5~|.../%3~|%~)"
+# cut shown $PWD if depth is 4 or more ('~' counts)
+TRUNCATED_PWD="%(4~|.../%2~|%~)"
 # cut shown $PWD after 20 characters
 #TRUNCATED_PWD="%20<...<%~%<<"
 
