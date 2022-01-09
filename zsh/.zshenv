@@ -5,8 +5,6 @@ SAVEHIST=$HISTSIZE
 export GOPATH="$HOME/.go"
 export PATH="$HOME/.cargo/bin:$HOME/.gem/bin:$GOPATH/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$PATH"
 
-[[ "`uname`" == 'Darwin' ]] && PATH="/opt/homebrew/bin:$PATH"
-
 if [[ -x /usr/bin/nvim ]]; then
   export EDITOR=nvim
 elif [[ -x /usr/bin/vim ]]; then
