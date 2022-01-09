@@ -56,6 +56,9 @@ nnoremap <C-p> :FuzzyOpen<CR>
 "noremap p p`[
 "noremap P P`[
 
+" https://github.com/neovim/neovim/pull/13268
+unmap Y
+
 augroup vimrc
     autocmd!
     autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
