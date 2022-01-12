@@ -5,6 +5,8 @@
 [core]
     compression = 9
     excludesfile = ~/.config/git/ignore
+    pager = less -F -X
+    #pager = cat
 [color]
     ui = auto
 [diff]
