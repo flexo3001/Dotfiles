@@ -12,9 +12,7 @@ info() {
 
 packages=(
     ## basic
-    'zsh' 'git' 'neovim' 'wl-clipboard' 'ranger' 'tmux' 'sqlite' 'ripgrep' 'fd-find' 'hyperfine'
-    ## ansible
-    'ansible' 'openssh'
+    'zsh' 'git' 'neovim' 'wl-clipboard' 'ranger' 'tmux' 'sqlite' 'ripgrep' 'fd-find'
     ## C and compiling
     '@C Development Tools and Libraries'
     ## golang
