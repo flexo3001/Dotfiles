@@ -18,6 +18,9 @@ filetype plugin indent on
 
 let g:markdown_fenced_languages = ['python', 'bash=sh', 'go', 'c', 'cpp', 'yaml', 'json', 'sql', 'haskell']
 
+" https://github.com/cloudhead/neovim-fuzzy/issues/50
+let g:fuzzy_rootcmds = [["git", "rev-parse", "--show-toplevel"]]
+
 set autoindent
 set autoread
 set autowrite
@@ -51,7 +54,7 @@ nnoremap <silent> <esc><esc> :nohls<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
-nnoremap <C-p> :FuzzyOpen<CR>
+map <silent> <C-P> :FuzzyOpen<CR>
 
 "noremap p p`[
 "noremap P P`[
