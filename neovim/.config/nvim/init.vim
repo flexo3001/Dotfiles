@@ -1,4 +1,4 @@
-if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
+if ($TERM=~"xterm-256color" || $TERM=~"screen-256color") || exists('g:GtkGuiLoaded')
     call plug#begin('~/.config/nvim/plugins')
     Plug 'cloudhead/neovim-fuzzy'
     Plug 'mhinz/vim-signify'
@@ -12,6 +12,10 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
     colorscheme NeoSolarized
     set background=light
     set termguicolors
+
+    if exists('g:GtkGuiLoaded')
+        call rpcnotify(1, 'Gui', 'Font', 'Fantasque Sans Mono 13')
+    endif
 endif
 
 filetype plugin indent on
