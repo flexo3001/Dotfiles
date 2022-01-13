@@ -3,8 +3,6 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color") || exists('g:GtkGuiLoad
     Plug 'cloudhead/neovim-fuzzy'
     Plug 'mhinz/vim-signify'
     Plug 'overcache/NeoSolarized'
-
-    " language plugins
     Plug 'LnL7/vim-nix'
     Plug 'neovimhaskell/haskell-vim'
     call plug#end()
@@ -12,6 +10,11 @@ if ($TERM=~"xterm-256color" || $TERM=~"screen-256color") || exists('g:GtkGuiLoad
     colorscheme NeoSolarized
     set background=light
     set termguicolors
+
+    " https://github.com/cloudhead/neovim-fuzzy/issues/50
+    let g:fuzzy_rootcmds = [["git", "rev-parse", "--show-toplevel"]]
+
+    map <silent> <C-P> :FuzzyOpen<CR>
 
     if exists('g:GtkGuiLoaded')
         call rpcnotify(1, 'Gui', 'Font', 'Fantasque Sans Mono 13')
@@ -21,9 +24,6 @@ endif
 filetype plugin indent on
 
 let g:markdown_fenced_languages = ['python', 'bash=sh', 'go', 'c', 'cpp', 'yaml', 'json', 'sql', 'haskell']
-
-" https://github.com/cloudhead/neovim-fuzzy/issues/50
-let g:fuzzy_rootcmds = [["git", "rev-parse", "--show-toplevel"]]
 
 set autoindent
 set autoread
@@ -57,8 +57,6 @@ nnoremap <silent> <esc><esc> :nohls<CR>
 
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
-
-map <silent> <C-P> :FuzzyOpen<CR>
 
 "noremap p p`[
 "noremap P P`[
