@@ -3,8 +3,9 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz vcs_info
 
+HISTFILE=${HOME}/.zsh_history
 HISTSIZE=100000
-SAVEHIST=100000
+SAVEHIST=$HISTSIZE
 
 setopt completeinword
 setopt extended_glob
