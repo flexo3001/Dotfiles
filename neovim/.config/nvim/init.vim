@@ -62,7 +62,7 @@ nnoremap <silent> gb :bn<CR>
 "noremap P P`[
 
 " https://github.com/neovim/neovim/pull/13268
-#unmap Y
+unmap Y
 
 augroup vimrc
     autocmd!
