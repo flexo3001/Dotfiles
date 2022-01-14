@@ -49,20 +49,15 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats "[%{$fg_bold[cyan]%}%b%{$reset_color%}]"
 zstyle ':vcs_info:*' actionformats "[%{$fg_bold[cyan]%}%b%{$reset_color%}|%a]"
 
-if [[ -f /run/.containerenv && -f /run/.toolboxenv ]]; then
-  PREFIX="%F{13}⬢%f "
-elif [[ "$NIX_PATH" && "$NIX_PROFILES" && "$NIX_CONF_DIR" ]]; then
-  PREFIX="%F{4}❄%f "
-else
-  PREFIX=""
-fi
-
 # cut shown $PWD if depth is 4 or more ('~' counts)
-TRUNCATED_PWD="%(4~|.../%2~|%~)"
+truncated_pwd="%(4~|.../%2~|%~)"
 # cut shown $PWD after 20 characters
-#TRUNCATED_PWD="%20<...<%~%<<"
+#truncated_pwd="%20<...<%~%<<"
 
-PROMPT="${PREFIX}(%M) ${TRUNCATED_PWD} %{$fg[red]%}%(#~#~$)%{$reset_color%} "
+shell_indicator=""
+[[ -f /run/.containerenv && -f /run/.toolboxenv ]] && shell_indicator="%F{13}⬢%f "
+
+PROMPT="${shell_indicator}(%M) ${truncated_pwd} %{$fg[red]%}%(#~#~$)%{$reset_color%} "
 RPROMPT="\$vcs_info_msg_0_"
 
 precmd () {
