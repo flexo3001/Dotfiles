@@ -1,2 +1,3 @@
 [Context]
-filesystems=xdg-pictures;xdg-download;!host
+shared=!network
+filesystems=xdg-download;xdg-pictures;!host

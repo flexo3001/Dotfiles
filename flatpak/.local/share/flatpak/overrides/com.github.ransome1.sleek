@@ -1,2 +1,3 @@
 [Context]
+shared=!network
 filesystems=~/.local/share/todo.txt;!home

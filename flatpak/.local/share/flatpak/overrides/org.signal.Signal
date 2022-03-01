@@ -1,3 +1,0 @@
-[Context]
-sockets=wayland
-filesystems=!xdg-public-share;!xdg-videos;!xdg-pictures;!xdg-music;!xdg-desktop;!xdg-documents
