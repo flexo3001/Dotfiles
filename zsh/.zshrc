@@ -1,4 +1,3 @@
-autoload -U +X colors && colors
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz vcs_info
@@ -18,6 +17,7 @@ setopt append_history
 setopt extended_history
 setopt histignorealldups
 setopt histignorespace
+setopt histfcntllock
 
 bindkey -e
 
@@ -46,27 +46,34 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' menu select=2
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats "[%{$fg_bold[cyan]%}%b%{$reset_color%}]"
-zstyle ':vcs_info:*' actionformats "[%{$fg_bold[cyan]%}%b%{$reset_color%}|%a]"
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "[%B%F{cyan}%b%f%%b]"
+zstyle ':vcs_info:*' actionformats "[%B%F{cyan}%b%f%%b|%a]"
 
-# cut shown $PWD if depth is 4 or more ('~' counts)
-truncated_pwd="%(4~|.../%2~|%~)"
-# cut shown $PWD after 20 characters
-#truncated_pwd="%20<...<%~%<<"
-
-shell_indicator=""
+local shell_indicator=""
 [[ -f /run/.containerenv && -f /run/.toolboxenv ]] && shell_indicator="%F{13}⬢%f "
 
-PROMPT="${shell_indicator}(%M) ${truncated_pwd} %{$fg[red]%}%(#~#~$)%{$reset_color%} "
+local user_color="red"
+let $UID && user_color="13"
+
+local user="%B%F{${user_color}}%n%f%b"
+local at="@"
+local host="%B%m%b "
+local dollar="%F{red}%(#~#~$)%f "
+local percent="%# "
+local rc="%B%F{red}%(?..%? )%f%b"
+local dir="%(4~|.../%2~|%~) "
+
+PROMPT="${shell_indicator}${user}${at}${host}${dir}${dollar}"
 RPROMPT="\$vcs_info_msg_0_"
 
 precmd () {
-  print -Pn "\e]0;(%M) %~\a"
+  print -Pn "\e]0;%n@%m: %~\a"
   vcs_info
 }
 
 preexec () {
-  print -Pn "\e]0;(%M) $1\a"
+  print -Pn "\e]0;%n@%m: $1\a"
 }
 
 sshl() {
