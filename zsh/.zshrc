@@ -1,23 +1,28 @@
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-autoload -Uz vcs_info
+autoload -U bashcompinit && bashcompinit
+autoload -U compinit && compinit
+autoload -U vcs_info
 
 HISTFILE=${HOME}/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
-setopt completeinword
-setopt extended_glob
-setopt noflowcontrol
-setopt prompt_subst
-unsetopt nomatch
+setopt "APPEND_HISTORY"
+setopt "EXTENDED_HISTORY"
+setopt "HIST_FCNTL_LOCK"
+setopt "HIST_IGNORE_ALL_DUPS"
+setopt "HIST_IGNORE_SPACE"
+setopt "SHARE_HISTORY"
 
-setopt share_history
-setopt append_history
-setopt extended_history
-setopt histignorealldups
-setopt histignorespace
-setopt histfcntllock
+setopt "AUTO_PUSHD"
+setopt "COMPLETE_IN_WORD"
+setopt "EXTENDED_GLOB"
+setopt "NO_FLOW_CONTROL"
+setopt "NO_NOMATCH"
+setopt "PROMPT_SUBST"
+
+alias :q="exit"
+alias ..="cd .."
+[[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
 
 bindkey -e
 
@@ -75,11 +80,3 @@ precmd () {
 preexec () {
   print -Pn "\e]0;%n@%m: $1\a"
 }
-
-sshl() {
-  ssh -N -L ${1}:localhost:${2} $3
-}
-
-alias :q="exit"
-alias ..="cd .."
-[[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
