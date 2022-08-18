@@ -1,6 +1,8 @@
 [Unit]
 Description=flatpak Automatic Update Trigger
 Documentation=man:flatpak(1)
+After=time-set.target
+After=time-sync.target
 
 [Timer]
 OnBootSec=1m
