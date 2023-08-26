@@ -1,15 +1,13 @@
 call plug#begin('~/.config/nvim/plugins')
 Plug 'cloudhead/neovim-fuzzy'
+Plug 'jnurmine/Zenburn'
 Plug 'mhinz/vim-signify'
-Plug 'overcache/NeoSolarized'
 Plug 'LnL7/vim-nix'
-Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
-    colorscheme NeoSolarized
-    set background=light
-    set termguicolors
+  colorscheme zenburn
+  "set termguicolors
 endif
 
 filetype plugin indent on
@@ -30,7 +28,6 @@ set nofoldenable
 set nojoinspaces
 set nowrap
 set number
-set printoptions=paper:A4,syntax:n,number:y
 set shiftwidth=2
 set showbreak=↪\
 set splitbelow
@@ -52,9 +49,7 @@ nnoremap <silent> gB :bp<CR>
 nnoremap <silent> gb :bn<CR>
 
 " https://github.com/neovim/neovim/pull/13268
-if matchstr(execute('version'), 'NVIM v0.\zs[^\n]') > 5
-  unmap Y
-endif
+unmap Y
 
 function! s:StripTrailing()
   let l = line(".")
@@ -68,4 +63,8 @@ augroup vimrc
   autocmd BufWritePre * call s:StripTrailing()
   autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
   autocmd FileType go setlocal noexpandtab sw=8
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
 augroup END
