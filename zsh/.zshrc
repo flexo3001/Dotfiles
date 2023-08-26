@@ -59,7 +59,7 @@ local shell_indicator=""
 [[ -f /run/.containerenv && -f /run/.toolboxenv ]] && shell_indicator="%F{13}⬢%f "
 
 local user_color="red"
-let $UID && user_color="13"
+let $UID && user_color="12"
 
 local user="%B%F{${user_color}}%n%f%b"
 local at="@"
@@ -72,11 +72,11 @@ local dir="%(4~|.../%2~|%~) "
 PROMPT="${shell_indicator}${user}${at}${host}${dir}${dollar}"
 RPROMPT="\$vcs_info_msg_0_"
 
-precmd () {
+precmd() {
   print -Pn "\e]0;%n@%m: %~\a"
   vcs_info
 }
 
-preexec () {
+preexec() {
   print -Pn "\e]0;%n@%m: $1\a"
 }
