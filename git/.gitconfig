@@ -5,8 +5,6 @@
 [core]
     compression = 9
     excludesfile = ~/.gitignore
-    pager = less -F -X
-    #pager = cat
 [color]
     ui = auto
 [diff]
@@ -15,9 +13,9 @@
     default = current
 [pull]
     rebase = false
+[fetch]
+    prune = true
 [help]
     autocorrect = 1
 [init]
     defaultBranch = main
-[cola]
-	spellcheck = false
