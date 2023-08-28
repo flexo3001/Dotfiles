@@ -7,7 +7,7 @@ call plug#end()
 
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   colorscheme zenburn
-  "set termguicolors
+  set termguicolors
 endif
 
 filetype plugin indent on
