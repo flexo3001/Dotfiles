@@ -65,6 +65,9 @@ augroup vimrc
   autocmd BufWritePre * call s:StripTrailing()
   autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
   autocmd FileType go setlocal noexpandtab sw=8
+
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
+
   autocmd BufReadPost *
     \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     \ |   exe "normal! g`\""
