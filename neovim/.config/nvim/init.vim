@@ -39,9 +39,11 @@ set wrapscan
 let mapleader=" "
 let maplocalleader=" "
 
-map <silent> <C-i> <NOP>
-map <silent> <C-o> :FuzzyOpen<CR>
-map <silent> <C-_> :FuzzyGrep<CR>
+nnoremap <silent> <C-i> <NOP>
+
+nnoremap <silent> <C-o> :FuzzyOpen<CR>
+nnoremap <silent> <C-_> :FuzzyGrep<CR>
+nnoremap <silent> <C-b> :buffers<CR>:buffer<Space>
 
 nnoremap <silent> <esc><esc> :nohls<CR>
 
