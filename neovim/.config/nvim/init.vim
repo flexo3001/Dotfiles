@@ -36,11 +36,6 @@ set statusline=\(%n\)\ %<%.99f\ %y\ %w%m%r%=%-14.(%l,%c%V%)\ %P
 set textwidth=120
 set wrapscan
 
-let mapleader=" "
-let maplocalleader=" "
-
-nnoremap <silent> <C-i> <NOP>
-
 nnoremap <silent> <C-o> :FuzzyOpen<CR>
 nnoremap <silent> <C-_> :FuzzyGrep<CR>
 nnoremap <silent> <C-b> :buffers<CR>:buffer<Space>
@@ -66,6 +61,7 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.pdc,*.pandoc setlocal filetype=markdown
   autocmd FileType go setlocal noexpandtab sw=8
 
+  " https://neovim.io/doc/user/options.html#'updatetime'
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
 
   autocmd BufReadPost *
