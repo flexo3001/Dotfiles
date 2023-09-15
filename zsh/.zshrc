@@ -22,6 +22,8 @@ setopt "PROMPT_SUBST"
 
 alias :q="exit"
 alias ..="cd .."
+alias grep="grep --color=auto"
+
 [[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
 
 bindkey -e
@@ -79,4 +81,11 @@ precmd() {
 
 preexec() {
   print -Pn "\e]0;%n@%m: $1\a"
+}
+
+sudorun() {
+  if builtin type -p sudo &> /dev/null; then
+    sudo $(which "${1}") "${@:2}"
+  fi
+  return 1
 }

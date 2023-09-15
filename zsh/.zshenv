@@ -7,5 +7,7 @@ elif [[ -x /usr/bin/vim ]] || [[ -x /opt/homebrew/bin/vim ]]; then
   export EDITOR=vim
 fi
 
-export LESS=-FRSMKI
+export LESS="-FRSMKI"
+export SYSTEMD_LESS="FRSMKI"
+
 [[ -x /usr/bin/dircolors ]] && eval "$(dircolors)"
