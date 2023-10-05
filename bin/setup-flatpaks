@@ -1,0 +1,58 @@
+#!/bin/bash
+set -euo pipefail
+
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpaks=(
+#  app.drey.Dialect
+#  app.drey.EarTag
+#  com.belmoussaoui.Obfuscate
+  com.bitwarden.desktop
+#  com.discordapp.Discord
+#  com.github.Bleuzen.FFaudioConverter
+#  com.github.git_cola.git-cola
+#  com.github.johnfactotum.Foliate
+#  com.github.junrrein.PDFSlicer
+#  com.github.micahflee.torbrowser-launcher
+  com.github.ransome1.sleek
+  com.github.tchx84.Flatseal
+#  com.github.unrud.VideoDownloader
+#  com.github.weclaw1.ImageRoll
+#  com.gitlab.zehkira.Myuzi
+  com.google.Chrome
+#  com.ranfdev.Geopard
+#  com.snes9x.Snes9x
+  com.spotify.Client
+#  com.usebottles.bottles
+  com.valvesoftware.Steam
+  com.visualstudio.code
+  com.yubico.yubioath
+  im.riot.Riot
+#  io.beekeeperstudio.Studio
+#  io.github.diegoivanme.flowtime
+#  io.mgba.mGBA
+#  net.baseart.Glide
+  org.chromium.Chromium
+#  org.filezillaproject.Filezilla
+  org.gimp.GIMP
+  org.gnome.Evolution
+#  org.gnome.Firmware
+#  org.gnome.GHex
+#  org.gnome.Solanum
+#  org.gnome.gitg
+  org.gnome.gitlab.cheywood.Iotas
+#  org.gnome.gitlab.YaLTeR.VideoTrimmer
+#  org.gtk.Gtk3theme.Adwaita-dark
+  org.libreoffice.LibreOffice
+  org.mozilla.firefox
+#  org.musicbrainz.Picard
+  org.signal.Signal
+  org.videolan.VLC
+)
+
+flatpak install flathub -y "${flatpaks[@]}"
+
+flatpak uninstall -y --unused
+flatpak override --user --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+
+gsettings reset org.gnome.shell app-picker-layout
