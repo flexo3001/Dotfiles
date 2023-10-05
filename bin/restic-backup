@@ -4,10 +4,11 @@ read_config() {
   # variables
   #CACHE_DIR="$HOME/.cache/restic"
   #BACKUP_PATHS="/etc /home/docker/volumes /root"
+  #BACKUP_PATHS="/home/.snapshots/$(ls -1t /home/.snapshots | head -n 1)/snapshot/flexo"
   #EXCLUDES_FILE="$HOME/.config/restic/excludes"
-  #KEEP_HOURS=96
-  #KEEP_DAYS=31
-  #KEEP_WEEKS=8
+  #KEEP_HOURS=168
+  #KEEP_DAYS=60
+  #KEEP_WEEKS=12
   #KEEP_MONTHS=12
   #KEEP_YEARS=3
   #RESTIC_PASSWORD="PASSWORD"
