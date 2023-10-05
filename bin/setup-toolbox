@@ -1,6 +1,7 @@
 #!/bin/bash
 
-RELEASE=${1:-$(. /lib/os-release && echo $VERSION_ID)}
+#RELEASE=${1:-$(. /lib/os-release && echo $VERSION_ID)}
+RELEASE=36
 NAME="fedora-toolbox-${RELEASE}"
 
 bold=$(tput bold)
@@ -28,17 +29,17 @@ packages=(
     ## rust
     'cargo' 'rust'
     ## header packages for compiling
-    'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel'
-    'openssl-devel'
+    'pulseaudio-libs-devel' 'libxcb-devel' 'ncurses-devel' 'dbus-devel' 'libgit2-devel' 'libssh2-devel' 'openssl-devel'
     ## python
-    'python-requests' 'python-PyMySQL' 'python-psycopg2'
+    #'python-requests' 'python-PyMySQL' 'python-psycopg2'
     ## huami-token
-    'python3-pytest' 'python3-requests' 'python3-rich'
+    #'python3-pytest' 'python3-requests' 'python3-rich'
     ## Mattermost Sphinx
-    'python3-sphinx' 'python3-sphinx-tabs' 'python3-sphinx_rtd_theme' 'python3-myst-parser' 'python3-typing-extensions'
+    #'python3-sphinx' 'python3-sphinx-tabs' 'python3-sphinx_rtd_theme' 'python3-myst-parser' 'python3-typing-extensions'
 )
 
 removals=(
+    'mercurial'
     'subversion'
 )
 
@@ -50,13 +51,13 @@ info 'Creating toolbox ...'
 toolbox -y create -r ${RELEASE}
 
 info 'Updating toolbox ...'
-toolbox run sudo dnf upgrade -y
+toolbox -c ${NAME} run sudo dnf upgrade -y
 
 info 'Installing packages inside toolbox ...'
-toolbox run sudo dnf install -y "${packages[@]}"
+toolbox -c ${NAME} run sudo dnf install -y "${packages[@]}"
 
 info 'Removing unused packages ...'
-toolbox run sudo dnf remove -y "${removals[@]}"
+toolbox -c ${NAME} run sudo dnf remove -y "${removals[@]}"
 
 info 'Removing unused dependencies ...'
-toolbox run sudo dnf autoremove -y
+toolbox -c ${NAME} run sudo dnf autoremove -y
