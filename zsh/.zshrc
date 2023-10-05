@@ -24,8 +24,6 @@ alias :q="exit"
 alias ..="cd .."
 alias grep="grep --color=auto"
 
-[[ -x /usr/bin/xdg-open ]] && alias open="xdg-open"
-
 bindkey -e
 
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
