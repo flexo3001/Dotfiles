@@ -1,9 +1,0 @@
-[Unit]
-Description=flatpak Automatic Update
-Documentation=man:flatpak(1)
-
-[Service]
-Type=oneshot
-ExecStartPre=nm-online
-ExecStart=/usr/bin/flatpak update -y
-ExecStart=/usr/bin/flatpak remove --unused -y

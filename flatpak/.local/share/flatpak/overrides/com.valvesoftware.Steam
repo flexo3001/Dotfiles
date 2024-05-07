@@ -1,2 +1,2 @@
 [Context]
-filesystems=!xdg-pictures:ro
+filesystems=!xdg-pictures
