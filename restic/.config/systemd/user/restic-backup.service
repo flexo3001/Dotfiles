@@ -1,8 +1,0 @@
-[Unit]
-Description=restic Backup
-Documentation=man:restic(1)
-
-[Service]
-Type=simple
-ExecStartPre=nm-online
-ExecStart=%h/.dotfiles/bin/restic-backup
