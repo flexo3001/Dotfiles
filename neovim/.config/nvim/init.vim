@@ -8,7 +8,6 @@ call plug#end()
 
 if ($TERM=~"xterm-256color" || $TERM=~"screen-256color")
   colorscheme zenburn
-  set termguicolors
 endif
 
 filetype plugin indent on
@@ -35,7 +34,8 @@ set textwidth=120
 set wrapscan
 
 " fzf mappings
-nnoremap <silent> <C-g> :Buffers<CR>
+nnoremap <silent> <C-g> :GFiles?<CR>
+nnoremap <silent> <C-m> :Buffers<CR>
 nnoremap <silent> <C-o> :Files<CR>
 nnoremap <silent> <C-q> :Bd<CR>
 if has('mac')
@@ -74,7 +74,7 @@ endfunction
 command! Bd call fzf#run(fzf#wrap({
   \ 'source': s:ListBuffers(),
   \ 'sink*': { lines -> s:DeleteBuffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept --prompt "Bd> "'
+  \ 'options': '--multi --bind ctrl-a:select-all+accept --prompt "Bd> "'
 \ }))
 
 augroup vimrc
