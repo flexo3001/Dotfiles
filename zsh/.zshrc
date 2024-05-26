@@ -51,7 +51,6 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' menu select=2
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' formats "[%B%F{cyan}%b%f%%b]"
 zstyle ':vcs_info:*' actionformats "[%B%F{cyan}%b%f%%b|%a]"
 
