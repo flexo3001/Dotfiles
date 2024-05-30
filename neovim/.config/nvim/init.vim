@@ -23,6 +23,7 @@ set list listchars=tab:▸\ ,trail:·
 set mouse=a
 set nofoldenable
 set nojoinspaces
+set notermguicolors
 set nowrap
 set number
 set shiftwidth=2
