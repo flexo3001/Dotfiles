@@ -4,8 +4,8 @@ keymap = [
   { keys = ["escape"], commands = ["escape"] },
   { keys = ["ctrl+t"], commands = ["new_tab"] },
   { keys = ["g", "n"], commands = ["new_tab"] },
-  { keys = ["g", "N"], commands = ["new_tab --current"] },
   { keys = ["ctrl+T"], commands = ["new_tab --current"] },
+  { keys = ["g", "N"], commands = ["new_tab --current"] },
   { keys = ["ctrl+w"], commands = ["close_tab"] },
   { keys = ["g", "c"], commands = ["close_tab"] },
   { keys = ["q"], commands = ["close_tab"] },
@@ -13,7 +13,6 @@ keymap = [
   { keys = ["Q"], commands = ["quit --output-current-directory"] },
 
   { keys = ["R"], commands = ["reload_dirlist"] },
-  { keys = ["ctrl+r"], commands = ["reload_dirlist"] },
   { keys = ["z", "h"], commands = ["toggle_hidden"] },
   { keys = ["ctrl+h"], commands = ["toggle_hidden"] },
   { keys = ["\t"], commands = ["tab_switch 1"] },
@@ -134,10 +133,10 @@ keymap = [
 
   { keys = ["g", "r"], commands = ["cd /"] },
   { keys = ["g", "/"], commands = ["cd /"] },
-  { keys = ["g", "d"], commands = ["cd ~/Downloads"] },
-  { keys = ["g", "h"], commands = ["cd ~/"] },
   { keys = ["g", "e"], commands = ["cd /etc"] },
   { keys = ["g", "v"], commands = ["cd /var"] },
+  { keys = ["g", "h"], commands = ["cd ~/"] },
+  { keys = ["g", "d"], commands = ["cd ~/Downloads"] },
   { keys = ["?"], commands = ["help"] },
 ]
 
